@@ -1,65 +1,96 @@
-import Image from "next/image";
+// app/page.tsx
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div>
+      {/* NAVBAR */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+        <a className="navbar-brand" href="#">Trading Circuit Academy</a>
+
+        <div className="ms-auto">
+          <Link href="/dashboard" className="btn btn-outline-light me-2">
+            Dashboard
+          </Link>
+          <a href="#about" className="btn btn-warning">
+            About Mentor
+          </a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </nav>
+
+      {/* HERO SECTION */}
+      <section className="text-center p-5 bg-light">
+        <h1 className="display-4 fw-bold">
+          Master Trading with Confidence 🚀
+        </h1>
+        <p className="lead mt-3">
+          Learn position sizing, risk management, and real-world strategies.
+        </p>
+
+        <Link href="/dashboard/position-sizing" className="btn btn-primary btn-lg mt-4">
+          Start Learning
+        </Link>
+      </section>
+
+      {/* FEATURES */}
+      <section className="container py-5">
+        <div className="row text-center">
+          <div className="col-md-4">
+            <img
+              src="https://img.freepik.com/free-vector/stock-market-concept-illustration_114360-1652.jpg"
+              className="img-fluid mb-3"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <h4>Position Sizing</h4>
+            <p>Calculate risk and manage trades like a pro.</p>
+          </div>
+
+          <div className="col-md-4">
+            <img
+              src="https://img.freepik.com/free-vector/data-analysis-concept-illustration_114360-797.jpg"
+              className="img-fluid mb-3"
+            />
+            <h4>Analytics</h4>
+            <p>Track performance and improve your strategy.</p>
+          </div>
+
+          <div className="col-md-4">
+            <img
+              src="https://img.freepik.com/free-vector/chatting-concept-illustration_114360-848.jpg"
+              className="img-fluid mb-3"
+            />
+            <h4>Community</h4>
+            <p>Discuss trades and learn from others.</p>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* ABOUT MENTOR */}
+      <section id="about" className="bg-dark text-white text-center p-5">
+        <h2>About the Mentor</h2>
+        <p className="mt-3">
+          Learn from an experienced trader who focuses on discipline, psychology,
+          and risk management rather than just signals.
+        </p>
+
+        <img
+          src="https://img.freepik.com/free-photo/businessman-working-laptop_23-2148478598.jpg"
+          className="img-fluid mt-3 rounded"
+          style={{ maxWidth: "300px" }}
+        />
+      </section>
+
+      {/* CTA */}
+      <section className="text-center p-5">
+        <h3>Ready to become consistent?</h3>
+        <Link href="/dashboard" className="btn btn-success btn-lg mt-3">
+          Go to Dashboard
+        </Link>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-dark text-white text-center p-3">
+        © 2026 Trading Mentor Platform
+      </footer>
     </div>
   );
 }
