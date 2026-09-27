@@ -12,8 +12,12 @@ html {
 }
 
 body {
-  background: #f4f6f4;
-  color: #0b0f0d;
+  background: #000000;
+  color: #ffffff;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
 }
 
 /* ---- Preserved dashboard styles (bootstrap-based pages) ---- */
@@ -54,4 +58,43 @@ body {
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* ---- Scroll-reveal ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- Orbit rotation ---- */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 26s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow 26s linear infinite reverse;
 }

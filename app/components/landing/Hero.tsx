@@ -1,60 +1,49 @@
-import { ArrowRight, TrendingUp, ShieldCheck, Star } from "lucide-react";
+import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section id="home" className="container-circuit pt-10 pb-20 sm:pt-16 sm:pb-28">
-      <div className="grid items-center gap-14 lg:grid-cols-2">
-        {/* Copy */}
-        <div>
-          <span className="inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-semibold tracking-wide text-circuit-ink/70 shadow-pill">
-            A Repeatable Framework, Not A Signal Group
-          </span>
-
-          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] text-circuit-ink sm:text-5xl lg:text-6xl">
-            Complete The{" "}
-            <span className="text-circuit-green-dark">Circuit.</span>
+    <section
+      id="home"
+      className="relative overflow-hidden border-b border-circuit-border pb-16 pt-14 sm:pb-24 sm:pt-20"
+    >
+      <div className="container-circuit relative text-center">
+        <Reveal>
+          <h1 className="mx-auto max-w-3xl font-display text-4xl font-bold leading-[1.12] text-white sm:text-5xl lg:text-6xl">
+            Master the Market
             <br />
-            Trade With Confidence.
+            with <span className="text-circuit-green">Trading Circuit.</span>
           </h1>
 
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-circuit-ink/70 sm:text-lg">
-            A live trading mentorship built around daily execution, direct
-            guidance, and one mechanical framework that closes the loop
-            between learning and trading &mdash; on any market, any timeframe.
+          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/55 sm:text-base">
+            A complete trading education built on structure and logic. Learn
+            through the E-book. Improve through mentorship.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="#pricing"
-              className="flex items-center gap-2 rounded-full bg-circuit-green px-7 py-3.5 text-sm font-bold text-circuit-ink shadow-pill transition hover:bg-circuit-green-dark hover:text-white"
+              href="#plans"
+              className="rounded-md bg-circuit-green px-6 py-3 text-sm font-semibold text-black transition hover:bg-circuit-green-dark"
             >
-              Join The Circuit
-              <ArrowRight size={16} strokeWidth={2.5} />
+              Available Plans
             </a>
             <a
-              href="#process"
-              className="rounded-full border border-circuit-ink/15 bg-white px-7 py-3.5 text-sm font-bold text-circuit-ink transition hover:border-circuit-ink/30"
+              href="https://t.me"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40"
             >
-              See How It Works
+              Join our Telegram
             </a>
           </div>
+        </Reveal>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm">
-            <span className="flex items-center gap-2 font-semibold text-circuit-ink">
-              <TrendingUp size={16} className="text-circuit-green-dark" />
-              500+ Members
-            </span>
-            <span className="flex items-center gap-2 font-semibold text-circuit-ink">
-              <Star size={16} className="text-circuit-green-dark" fill="currentColor" />
-              4.8/5 Rating
-            </span>
-          </div>
-        </div>
-
-        {/* Signature visual: circuit-trace trading terminal */}
-        <div className="relative">
-          <div className="absolute -inset-6 -z-10 hidden rounded-[2rem] bg-circuit-green/10 sm:block" />
-          <div className="relative overflow-hidden rounded-3xl bg-circuit-ink p-5 shadow-2xl sm:p-7">
+        {/* Signature visual: circuit-trace trading terminal (original hero card) */}
+        <Reveal delay={150} className="relative mx-auto mt-16 max-w-xl">
+          <div
+            aria-hidden
+            className="absolute -inset-6 -z-10 hidden rounded-[2rem] bg-circuit-green/10 blur-2xl sm:block"
+          />
+          <div className="relative overflow-hidden rounded-3xl border border-circuit-border bg-circuit-card p-5 text-left shadow-2xl sm:p-7">
             <CircuitTraces />
             <div className="relative flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -78,7 +67,7 @@ export default function Hero() {
               <Stat label="Setups / wk" value="12" />
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -103,25 +92,13 @@ function CircuitTraces() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M0 40 H120 V10 H260 M260 10 V70 H400"
-        stroke="#3FE05C"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M0 260 H90 V300"
-        stroke="#3FE05C"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M400 230 H300 V180 H180"
-        stroke="#3FE05C"
-        strokeWidth="1.5"
-      />
-      <circle cx="120" cy="40" r="4" fill="#3FE05C" />
-      <circle cx="260" cy="70" r="4" fill="#3FE05C" />
-      <circle cx="90" cy="260" r="4" fill="#3FE05C" />
-      <circle cx="180" cy="180" r="4" fill="#3FE05C" />
+      <path d="M0 40 H120 V10 H260 M260 10 V70 H400" stroke="#8CFF2E" strokeWidth="1.5" />
+      <path d="M0 260 H90 V300" stroke="#8CFF2E" strokeWidth="1.5" />
+      <path d="M400 230 H300 V180 H180" stroke="#8CFF2E" strokeWidth="1.5" />
+      <circle cx="120" cy="40" r="4" fill="#8CFF2E" />
+      <circle cx="260" cy="70" r="4" fill="#8CFF2E" />
+      <circle cx="90" cy="260" r="4" fill="#8CFF2E" />
+      <circle cx="180" cy="180" r="4" fill="#8CFF2E" />
     </svg>
   );
 }
@@ -146,14 +123,9 @@ function CandlestickChart() {
     <div className="flex h-40 items-end gap-2 sm:h-48">
       {CANDLES.map((c, i) => (
         <div key={i} className="flex flex-1 flex-col items-center justify-end gap-1">
+          <div className="w-px bg-white/25" style={{ height: `${c.h - c.body}px` }} />
           <div
-            className="w-px bg-white/25"
-            style={{ height: `${c.h - c.body}px` }}
-          />
-          <div
-            className={`w-full rounded-[2px] ${
-              c.up ? "bg-circuit-green" : "bg-white/30"
-            }`}
+            className={`w-full rounded-[2px] ${c.up ? "bg-circuit-green" : "bg-white/30"}`}
             style={{ height: `${c.body}px` }}
           />
         </div>

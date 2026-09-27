@@ -1,26 +1,20 @@
-import AnnouncementBar from "./components/landing/AnnouncementBar";
 import Navbar from "./components/landing/Navbar";
 import Hero from "./components/landing/Hero";
-import Benefits from "./components/landing/Benefits";
-import Process from "./components/landing/Process";
-import Pricing from "./components/landing/Pricing";
-import Testimonials from "./components/landing/Testimonials";
-import FAQ from "./components/landing/FAQ";
-import Contact from "./components/landing/Contact";
+import About from "./components/landing/About";
+import ClientResults from "./components/landing/ClientResults";
+import AvailablePlans from "./components/landing/AvailablePlans";
+import Numbers from "./components/landing/Numbers";
 import LandingFooter from "./components/landing/LandingFooter";
 
 export default function Home() {
   return (
     <div className="bg-circuit-bg">
-      <AnnouncementBar />
       <Navbar />
       <Hero />
-      <Benefits />
-      <Process />
-      <Pricing />
-      <Testimonials />
-      <FAQ />
-      <Contact />
+      <About />
+      <ClientResults />
+      <AvailablePlans />
+      <Numbers />
       <LandingFooter />
     </div>
   );

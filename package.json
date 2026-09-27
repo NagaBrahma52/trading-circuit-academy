@@ -1,12 +1,12 @@
 {
-  "name": "trading-circuit-academy",
-  "version": "0.1.0",
+  "name": "trading-circuit",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.15.13",

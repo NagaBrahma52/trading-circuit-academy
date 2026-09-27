@@ -15,9 +15,9 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Trading Circuit | Master One System. Trade With Confidence.",
+  title: "Trading Circuit | Master The Market",
   description:
-    "Trading Circuit is a live trading mentorship built around daily execution, direct mentorship, and one repeatable framework that adapts to any market or timeframe.",
+    "A complete trading education built on structure and logic. Learn through the E-book. Improve through mentorship.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="font-body" suppressHydrationWarning>
+      <body className="bg-circuit-bg font-body text-white" suppressHydrationWarning>
         {children}
       </body>
     </html>
