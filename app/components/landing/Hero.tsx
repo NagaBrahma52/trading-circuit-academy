@@ -27,7 +27,7 @@ export default function Hero() {
               Available Plans
             </a>
             <a
-              href="https://t.me"
+              href="https://t.me/Wealth_Engr"
               target="_blank"
               rel="noreferrer"
               className="rounded-md border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40"
@@ -38,7 +38,7 @@ export default function Hero() {
         </Reveal>
 
         {/* Signature visual: circuit-trace trading terminal (original hero card) */}
-        <Reveal delay={150} className="relative mx-auto mt-16 max-w-xl">
+        {/* <Reveal delay={150} className="relative mx-auto mt-16 max-w-xl">
           <div
             aria-hidden
             className="absolute -inset-6 -z-10 hidden rounded-[2rem] bg-circuit-green/10 blur-2xl sm:block"
@@ -67,7 +67,7 @@ export default function Hero() {
               <Stat label="Setups / wk" value="12" />
             </div>
           </div>
-        </Reveal>
+        </Reveal> */}
       </div>
     </section>
   );

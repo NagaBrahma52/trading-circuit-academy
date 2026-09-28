@@ -8,7 +8,7 @@ const SOCIALS = [
   { icon: Twitter, href: "https://x.com" },
   { icon: Facebook, href: "https://facebook.com" },
   { icon: Youtube, href: "https://youtube.com" },
-  { icon: Send, href: "https://t.me" },
+  { icon: Send, href: "https://t.me/Wealth_Engr" },
 ];
 
 const LINKS = [

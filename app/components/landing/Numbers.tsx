@@ -36,7 +36,7 @@ export default function Numbers() {
                 Available Plans
               </a>
               <a
-                href="https://t.me"
+                href="https://t.me/Wealth_Engr"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-md border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40"
