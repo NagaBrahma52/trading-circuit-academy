@@ -10,7 +10,7 @@ export default function DashboardLayout({
   isAdmin = false,
 }: {
   children: React.ReactNode;
-  user: { email: string; name?: string };
+  user: { email: string; name?: string, role: "user" | "admin" };
   isAdmin?: boolean;
 }) {
   const [collapsed, setCollapsed] = useState(false);
