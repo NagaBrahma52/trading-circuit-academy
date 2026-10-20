@@ -21,7 +21,7 @@ export default async function LibraryArticlePage({
     .single();
 
     console.log(article);
-  if (!article) notFound();
+    if (!article || !article.published) notFound();
 
   return (
     <main className="min-h-screen bg-circuit-bg pb-20 pt-10 sm:pt-16">
