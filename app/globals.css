@@ -98,3 +98,52 @@ section[id] {
 .animate-spin-slow-reverse {
   animation: spin-slow 26s linear infinite reverse;
 }
+
+/* ---- Consistent dark dashboard theme ---- */
+.dashboard-panel {
+  border: 1px solid #242a24;
+  border-radius: 1rem;
+  background: #0b0d0b;
+  color: #f5f7f4;
+}
+
+/* Keep legacy Bootstrap calculator controls readable inside the dark workspace. */
+main .card {
+  border: 1px solid #242a24;
+  border-radius: 1rem;
+  background: #0b0d0b;
+  color: #f5f7f4;
+  box-shadow: none;
+}
+
+main .card .card-header {
+  border-bottom: 1px solid #242a24;
+  background: #101410 !important;
+  color: #f5f7f4 !important;
+}
+
+main .form-control,
+main .form-select {
+  border-color: #303830;
+  background-color: #080a08;
+  color: #f5f7f4;
+}
+
+main .form-control:focus,
+main .form-select:focus {
+  border-color: #8cff2e;
+  background-color: #080a08;
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem rgb(140 255 46 / 12%);
+}
+
+main .form-label,
+main .card-body h5,
+main .card-body h3,
+main .card-body h4 {
+  color: #f5f7f4;
+}
+
+@media (max-width: 1023px) {
+  main { margin-left: 0 !important; }
+}

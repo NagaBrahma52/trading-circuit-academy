@@ -8,6 +8,21 @@ export default function Hero() {
     >
       <div className="container-circuit relative text-center">
         <Reveal>
+          <div className="mx-auto mb-8 inline-flex max-w-3xl flex-wrap items-center justify-center gap-x-1.5 gap-y-1 rounded-2xl border border-circuit-green/25 bg-circuit-green/5 px-5 py-3 text-center text-xs font-medium leading-relaxed text-white/70 sm:rounded-full sm:text-sm">
+            <span className="font-semibold text-circuit-green">
+              The ultimate market truth:
+            </span>
+            <span>
+              <span className="font-semibold text-white">96%</span> of
+              emotional retail traders provide liquidity for the{" "}
+              <span className="font-semibold text-white">4%</span> who trade
+              with a Trap Trading system. Move away from the crowd. Join The
+              Trading Circuit to master the ONE system.
+            </span>
+          </div>
+        </Reveal>
+
+        <Reveal>
           <h1 className="mx-auto max-w-3xl font-display text-4xl font-bold leading-[1.12] text-white sm:text-5xl lg:text-6xl">
             Master the Market
             <br />
