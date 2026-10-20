@@ -7,11 +7,10 @@ export const revalidate = 0;
 
 export default async function LibraryPage() {
   const supabase = await createClient();
-  const { data: articles } = await supabase
-    .from("articles")
-    .select("slug, title, excerpt, cover_image_url, created_at")
-    .eq("published", true)
-    .order("created_at", { ascending: false });
+  const { data: articles, error } = await supabase
+  .from("articles")
+  .select("id, slug, title, excerpt, cover_image_url, published, created_at")
+  .order("created_at", { ascending: false });
 
   return (
     <>
@@ -25,12 +24,18 @@ export default async function LibraryPage() {
           Breakdowns, write-ups, and lessons from Trading Circuit.
         </p>
 
+        {error ? (
+          <div className="mt-10 rounded-xl border border-amber-400/30 bg-amber-400/5 p-5 text-sm leading-relaxed text-amber-100">
+            The articles could not be loaded from Supabase. The database may still have the older articles schema. Run the updated <code>supabase/schema.sql</code> in Supabase SQL Editor, then refresh this page.
+          </div>
+        ) : null}
+
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {articles?.length ? (
             articles.map((a) => (
               <Link
-                key={a.slug}
-                href={`/library/${a.slug}`}
+                key={a.id}
+                href={`/library/${a.id}`}
                 className="overflow-hidden rounded-2xl border border-circuit-border bg-circuit-card transition hover:border-circuit-green/40"
               >
                 {a.cover_image_url ? (

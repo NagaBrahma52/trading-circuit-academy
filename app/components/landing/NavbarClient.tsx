@@ -6,11 +6,11 @@ import { Menu, X, Send, Activity, LogIn, UserPlus, LayoutDashboard, CircleUserRo
 import { logout } from "../../login/actions";
 
 const LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About us", href: "#about" },
-  { label: "Client Results", href: "#results" },
+  { label: "Home", href: "/#home" },
+  { label: "About us", href: "/#about" },
+  { label: "Client Results", href: "/#results" },
   { label: "Digital Library", href: "/library" },
-  { label: "Contact Us", href: "#footer" },
+  { label: "Contact Us", href: "/#footer" },
 ];
 
 const linkClass = "text-sm text-white/70 transition hover:text-circuit-green";
@@ -62,7 +62,7 @@ export default function NavbarClient({ currentUser }: { currentUser: NavbarUser 
         <div className="border-t border-circuit-border bg-black px-4 pb-4 md:hidden">
           <div className="flex flex-col gap-1 pt-3">
             {LINKS.map((link) => <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="rounded-md px-3 py-2.5 text-sm font-medium text-white/80 hover:bg-white/5">{link.label}</a>)}
-            <a href="#plans" onClick={() => setOpen(false)} className="mt-2 rounded-md bg-circuit-green px-5 py-2.5 text-center text-sm font-semibold text-black">Available Plans</a>
+            <a href="/#plans" onClick={() => setOpen(false)} className="mt-2 rounded-md bg-circuit-green px-5 py-2.5 text-center text-sm font-semibold text-black">Available Plans</a>
             {currentUser ? (
               <>
                 <div className="flex items-center gap-3 rounded-lg border border-white/10 p-3"><CircleUserRound className="text-circuit-green"/><div><div className="text-sm font-semibold text-white">{currentUser.name || currentUser.email}</div><div className="mt-1 text-[10px] font-bold uppercase tracking-wider text-circuit-green">{currentUser.role === "admin" ? "Admin" : "Normal user"}</div></div></div>

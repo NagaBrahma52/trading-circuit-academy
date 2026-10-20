@@ -16,11 +16,12 @@ export default async function LibraryArticlePage({
   const supabase = await createClient();
   const { data: article } = await supabase
     .from("articles")
-    .select("title, excerpt, cover_image_url, blocks, created_at, published")
-    .eq("slug", params.slug)
+    .select("id, title, excerpt, cover_image_url, blocks, published, created_at")
+    .eq("id", params.slug)
     .single();
 
-  if (!article || !article.published) notFound();
+    console.log(article);
+  if (!article) notFound();
 
   return (
     <main className="min-h-screen bg-circuit-bg pb-20 pt-10 sm:pt-16">

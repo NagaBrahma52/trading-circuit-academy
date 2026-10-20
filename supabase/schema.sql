@@ -68,12 +68,22 @@ create table if not exists public.articles (
   slug text not null unique,
   title text not null,
   excerpt text,
-  content text not null,
+  cover_image_url text,
+  blocks jsonb not null default '[]'::jsonb,
+  -- Keep content for compatibility with older article records.
+  content text not null default '',
   author_id uuid not null references public.profiles (id),
   published boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+-- Upgrade existing projects created with the earlier schema.
+alter table public.articles add column if not exists excerpt text;
+alter table public.articles add column if not exists cover_image_url text;
+alter table public.articles add column if not exists blocks jsonb not null default '[]'::jsonb;
+alter table public.articles add column if not exists content text not null default '';
+alter table public.articles alter column content set default '';
 
 alter table public.articles enable row level security;
 
