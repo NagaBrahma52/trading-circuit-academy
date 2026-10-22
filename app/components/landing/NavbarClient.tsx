@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Send, Activity, LogIn, UserPlus, LayoutDashboard, CircleUserRound, ShieldCheck, LogOut } from "lucide-react";
+import { Menu, X, Send, LogIn, UserPlus, LayoutDashboard, CircleUserRound, ShieldCheck, LogOut } from "lucide-react";
 import { logout } from "../../login/actions";
 
 const LINKS = [
@@ -24,10 +25,8 @@ export default function NavbarClient({ currentUser }: { currentUser: NavbarUser 
   return (
     <div className="sticky top-0 z-50 border-b border-circuit-border bg-black/95 backdrop-blur">
       <div className="container-circuit flex min-h-[72px] items-center justify-between gap-4">
-        <Link href="/#home" className="flex shrink-0 items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-circuit-green text-black">
-            <Activity size={17} strokeWidth={2.5} />
-          </span>
+        <Link href="/#home" className="flex shrink-0 items-center gap-2.5">
+          <Image src="/logo.jpeg" alt="Trading Circuit Academy" width={36} height={36} className="rounded-full object-cover" />
           <span className="font-display text-lg font-bold text-white">Trading Circuit</span>
         </Link>
 

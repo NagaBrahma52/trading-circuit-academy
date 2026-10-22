@@ -12,9 +12,9 @@ export default function Hero() {
           <div className="mx-auto mb-8 w-full max-w-5xl overflow-hidden rounded-2xl border border-circuit-green/30 shadow-[0_0_32px_rgba(140,255,46,0.12)]">
             <Image
               src="/market-truth-banner.jpg"
-              alt="The ultimate market truth: a trading system and discipline create opportunity"
-              width={1024}
-              height={341}
+              alt="The ultimate market truth: 96% of traders fail following emotions, 4% succeed following a system"
+              width={1983}
+              height={793}
               priority
               className="h-auto w-full object-contain"
               sizes="(max-width: 768px) 100vw, 1024px"

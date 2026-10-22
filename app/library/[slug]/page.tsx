@@ -18,10 +18,9 @@ export default async function LibraryArticlePage({
     .from("articles")
     .select("id, title, excerpt, cover_image_url, blocks, published, created_at")
     .eq("id", params.slug)
-    .single();
+    .maybeSingle();
 
-    console.log(article);
-    if (!article || !article.published) notFound();
+  if (!article || !article.published) notFound();
 
   return (
     <main className="min-h-screen bg-circuit-bg pb-20 pt-10 sm:pt-16">

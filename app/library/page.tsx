@@ -8,9 +8,10 @@ export const revalidate = 0;
 export default async function LibraryPage() {
   const supabase = await createClient();
   const { data: articles, error } = await supabase
-  .from("articles")
-  .select("id, slug, title, excerpt, cover_image_url, published, created_at")
-  .order("created_at", { ascending: false });
+    .from("articles")
+    .select("id, title, excerpt, cover_image_url, created_at")
+    .eq("published", true)
+    .order("created_at", { ascending: false });
 
   return (
     <>
@@ -26,7 +27,14 @@ export default async function LibraryPage() {
 
         {error ? (
           <div className="mt-10 rounded-xl border border-amber-400/30 bg-amber-400/5 p-5 text-sm leading-relaxed text-amber-100">
-            The articles could not be loaded from Supabase. The database may still have the older articles schema. Run the updated <code>supabase/schema.sql</code> in Supabase SQL Editor, then refresh this page.
+            The articles could not be loaded from Supabase. The database may
+            still have the older articles schema — run{" "}
+            <code>supabase/schema.sql</code> and{" "}
+            <code>supabase/library_update.sql</code> in the Supabase SQL
+            Editor, then refresh this page.
+            <p className="mt-2 font-mono text-xs text-amber-200/70">
+              {error.message}
+            </p>
           </div>
         ) : null}
 

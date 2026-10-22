@@ -4,6 +4,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 import { login, signup, type AuthState } from "./actions";
+import Spinner from "../components/ui/Spinner";
 
 const initialState: AuthState = { error: null };
 
@@ -142,8 +143,9 @@ function SubmitButton({
     <button
       type="submit"
       disabled={pending}
-      className="w-full rounded-md bg-circuit-green py-3 text-sm font-semibold text-black transition hover:bg-circuit-green-dark disabled:opacity-60"
+      className="flex w-full items-center justify-center gap-2 rounded-md bg-circuit-green py-3 text-sm font-semibold text-black transition hover:bg-circuit-green-dark disabled:opacity-60"
     >
+      {pending && <Spinner size={15} />}
       {pending ? pendingLabel : idleLabel}
     </button>
   );

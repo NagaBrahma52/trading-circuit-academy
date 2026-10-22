@@ -1,6 +1,7 @@
 "use client";
 
-import { Instagram, Facebook, Youtube, Send, Twitter, Activity } from "lucide-react";
+import Image from "next/image";
+import { Instagram, Facebook, Youtube, Send, Twitter } from "lucide-react";
 import Reveal from "./Reveal";
 
 const SOCIALS = [
@@ -26,10 +27,8 @@ export default function LandingFooter() {
         className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-circuit-green/10 to-transparent"
       />
       <Reveal className="container-circuit relative py-16 text-center sm:py-20">
-        <a href="/#home" className="inline-flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-circuit-green text-black">
-            <Activity size={16} strokeWidth={2.5} />
-          </span>
+        <a href="/#home" className="inline-flex items-center gap-2.5">
+          <Image src="/logo.jpeg" alt="Trading Circuit Academy" width={40} height={40} className="rounded-full object-cover" />
           <span className="font-display text-xl font-bold text-white">
             Trading Circuit
           </span>

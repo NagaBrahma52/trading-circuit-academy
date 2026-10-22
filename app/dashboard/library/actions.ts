@@ -122,3 +122,12 @@ export async function deleteArticle(id: string) {
   revalidatePath("/library");
   revalidatePath("/dashboard/library");
 }
+
+export async function toggleArticlePublished(id: string, nextPublished: boolean) {
+  await requireAdmin();
+  const supabase = await createClient();
+  await supabase.from("articles").update({ published: nextPublished }).eq("id", id);
+
+  revalidatePath("/library");
+  revalidatePath("/dashboard/library");
+}

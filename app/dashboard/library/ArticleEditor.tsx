@@ -5,6 +5,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { createClient } from "@/lib/supabase/client";
 import { BLOCK_LABELS, emptyBlock, type Block, type BlockType } from "@/components/library/blocks";
 import type { ArticleFormState } from "./actions";
+import Spinner from "@/components/ui/Spinner";
 
 const initialState: ArticleFormState = { error: null };
 
@@ -146,7 +147,9 @@ export default function ArticleEditor({
               }}
             />
             {uploadingCover && (
-              <p className="small text-muted mt-1 mb-0">Uploading...</p>
+              <p className="small text-muted mt-1 mb-0 d-flex align-items-center gap-2">
+                <Spinner size={14} /> Uploading...
+              </p>
             )}
           </div>
 
@@ -336,7 +339,9 @@ function BlockEditor({
             }}
           />
           {uploading && (
-            <p className="small text-muted mb-0">Uploading...</p>
+            <p className="small text-muted mb-0 d-flex align-items-center gap-2">
+              <Spinner size={14} /> Uploading...
+            </p>
           )}
           <input
             className="form-control"
@@ -362,8 +367,9 @@ function SubmitButton({ label }: { label: string }) {
     <button
       type="submit"
       disabled={pending}
-      className="btn btn-primary align-self-start"
+      className="btn btn-primary align-self-start d-flex align-items-center gap-2"
     >
+      {pending && <Spinner size={14} />}
       {pending ? "Saving..." : label}
     </button>
   );

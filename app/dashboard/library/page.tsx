@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowUpRight, BookOpen, FileText, Plus, ShieldCheck } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentProfile } from "@/lib/supabase/profile";
-import { deleteArticle } from "./actions";
+import { DeleteButton, PublishToggleButton } from "./RowActions";
 
 export const revalidate = 0;
 
@@ -49,7 +49,7 @@ export default async function ManageLibraryPage() {
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {visibleArticles.map((article, index) => (
             <article key={article.id} className="group overflow-hidden rounded-2xl border border-circuit-border bg-circuit-card transition duration-300 hover:-translate-y-1 hover:border-circuit-green/35">
-              <Link href={isAdmin && !article.published ? `/dashboard/library/${article.id}/edit` : `/library/${article.slug}`} className="block">
+              <Link href={isAdmin && !article.published ? `/dashboard/library/${article.id}/edit` : `/library/${article.id}`} className="block">
                 <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-circuit-green/15 via-white/[0.02] to-transparent">
                   {article.cover_image_url ? <Image src={article.cover_image_url} alt={article.title} fill unoptimized className="object-cover transition duration-500 group-hover:scale-[1.03]" /> : <div className="absolute inset-0 flex items-center justify-center"><BookOpen size={42} strokeWidth={1.1} className="text-circuit-green/45" /><span className="absolute bottom-3 right-4 font-display text-5xl font-bold text-white/[0.04]">{String(index + 1).padStart(2, "0")}</span></div>}
                   <span className={`absolute left-4 top-4 rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] backdrop-blur ${article.published ? "border-circuit-green/25 bg-black/70 text-circuit-green" : "border-white/15 bg-black/70 text-white/65"}`}>{article.published ? "Published" : "Draft"}</span>
@@ -62,11 +62,10 @@ export default async function ManageLibraryPage() {
                 </div>
               </Link>
               {isAdmin && (
-                <div className="flex items-center gap-2 border-t border-white/[0.06] px-5 py-3 sm:px-6">
+                <div className="flex flex-wrap items-center gap-2 border-t border-white/[0.06] px-5 py-3 sm:px-6">
                   <Link href={`/dashboard/library/${article.id}/edit`} className="rounded-lg border border-white/10 px-3 py-2 text-xs font-semibold text-white/70 transition hover:border-circuit-green/30 hover:text-circuit-green">Edit article</Link>
-                  <form action={async () => { "use server"; await deleteArticle(article.id); }}>
-                    <button className="rounded-lg border border-red-400/15 px-3 py-2 text-xs font-semibold text-red-300/75 transition hover:border-red-400/40 hover:text-red-200">Delete</button>
-                  </form>
+                  <PublishToggleButton id={article.id} published={article.published} />
+                  <DeleteButton id={article.id} />
                 </div>
               )}
             </article>
